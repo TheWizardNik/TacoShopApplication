@@ -1,7 +1,7 @@
-package com.example.tacocloud;
+package com.example.tacocloud.Repositories;
 
+import com.example.tacocloud.Entities.Ingredient;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.test.context.jdbc.Sql;
 
 public interface IngredientRepository
         extends CrudRepository<Ingredient, String> {

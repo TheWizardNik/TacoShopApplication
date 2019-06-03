@@ -1,9 +1,7 @@
-package com.example.tacocloud;
+package com.example.tacocloud.Repositories;
 
+import com.example.tacocloud.Entities.Order;
 import org.springframework.data.repository.CrudRepository;
-
-import java.util.Date;
-import java.util.List;
 
 public interface OrderRepository
         extends CrudRepository<Order, Long> {

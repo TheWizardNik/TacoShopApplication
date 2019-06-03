@@ -1,4 +1,4 @@
-package com.example.tacocloud;
+package com.example.tacocloud.Controllers;
 
 import org.springframework.context.annotation.Configuration;
 import

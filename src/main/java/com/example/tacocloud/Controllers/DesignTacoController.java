@@ -1,21 +1,21 @@
-package com.example.tacocloud;
+package com.example.tacocloud.Controllers;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
 
-import com.example.tacocloud.Ingredient;
+import com.example.tacocloud.Entities.Order;
+import com.example.tacocloud.Entities.Taco;
+import com.example.tacocloud.Repositories.IngredientRepository;
+import com.example.tacocloud.Repositories.TacoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-import lombok.extern.slf4j.Slf4j;
-import com.example.tacocloud.Taco;
-import com.example.tacocloud.Ingredient;
-import com.example.tacocloud.Ingredient.Type;
+import com.example.tacocloud.Entities.Ingredient;
+import com.example.tacocloud.Entities.Ingredient.Type;
 
 //tag::injectingDesignRepository[]
 //tag::injectingIngredientRepository[]
@@ -73,7 +73,6 @@ public class DesignTacoController {
             model.addAttribute(type.toString().toLowerCase(),
                     filterByType(ingredients, type));
         }
-
         return "design";
     }
     //end::injectingIngredientRepository[]

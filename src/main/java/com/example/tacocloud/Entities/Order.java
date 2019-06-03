@@ -1,4 +1,4 @@
-package com.example.tacocloud;
+package com.example.tacocloud.Entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
@@ -40,7 +40,7 @@ public class Order implements Serializable {
     @Digits(integer = 3, fraction = 0, message = "Неверный CVV")
     private String ccCVV;
 
-    @ManyToMany(targetEntity=Taco.class)
+    @ManyToMany(targetEntity= Taco.class)
     private List<Taco> tacos = new ArrayList<>();
     public void addDesign(Taco design) {
         this.tacos.add(design);
