@@ -17,29 +17,14 @@ import org.springframework.web.bind.annotation.*;
 import com.example.tacocloud.Entities.Ingredient;
 import com.example.tacocloud.Entities.Ingredient.Type;
 
-//tag::injectingDesignRepository[]
-//tag::injectingIngredientRepository[]
+
 @Controller
 @RequestMapping("/design")
-//end::injectingIngredientRepository[]
 @SessionAttributes("order")
-//tag::injectingIngredientRepository[]
 public class DesignTacoController {
-
     private final IngredientRepository ingredientRepo;
-
-    //end::injectingIngredientRepository[]
     private TacoRepository tacoRepo;
 
-    //end::injectingDesignRepository[]
-  /*
-  //tag::injectingIngredientRepository[]
-  public DesignTacoController(IngredientRepository ingredientRepo) {
-    this.ingredientRepo = ingredientRepo;
-  }
-  //end::injectingIngredientRepository[]
-   */
-    //tag::injectingDesignRepository[]
 
     @Autowired
     public DesignTacoController(
@@ -59,15 +44,11 @@ public class DesignTacoController {
         return new Taco();
     }
 
-    //end::injectingDesignRepository[]
-
-    //tag::injectingIngredientRepository[]
 
     @GetMapping
     public String showDesignForm(Model model) {
         List<Ingredient> ingredients = new ArrayList<>();
         ingredientRepo.findAll().forEach(ingredients::add);
-
         Type[] types = Ingredient.Type.values();
         for (Type type : types) {
             model.addAttribute(type.toString().toLowerCase(),
@@ -75,9 +56,7 @@ public class DesignTacoController {
         }
         return "design";
     }
-    //end::injectingIngredientRepository[]
 
-    //tag::injectingDesignRepository[]
     @PostMapping
     public String processDesign(
             @Valid Taco taco, Errors errors,
@@ -93,7 +72,6 @@ public class DesignTacoController {
         return "redirect:/orders/current";
     }
 
-//end::injectingDesignRepository[]
 
     private List<Ingredient> filterByType(
             List<Ingredient> ingredients, Type type) {
@@ -103,17 +81,4 @@ public class DesignTacoController {
                 .collect(Collectors.toList());
     }
 
-  /*
-  //tag::injectingDesignRepository[]
-  //tag::injectingIngredientRepository[]
-   ...
-  //end::injectingIngredientRepository[]
-  //end::injectingDesignRepository[]
-  */
-
-//tag::injectingDesignRepository[]
-//tag::injectingIngredientRepository[]
-
 }
-//end::injectingIngredientRepository[]
-//end::injectingDesignRepository[]
