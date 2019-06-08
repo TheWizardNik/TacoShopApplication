@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
-import javax.sql.DataSource;
+import javax.activation.DataSource;
 
 
 @Configuration
@@ -58,6 +58,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/design", "/orders")
                 .access("hasRole('ROLE_USER')")
                 .antMatchers("/", "/**").access("permitAll")
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/design",true)
+                .and()
+                .logout()
+                .logoutSuccessUrl("/")
         ;
+
     }
 }

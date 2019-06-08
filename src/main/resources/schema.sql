@@ -5,12 +5,7 @@ create table if not exists Ingredient
     type varchar(10) not null
 );
 
-create table if not exists Users
-(
-    id   varchar(4)  not null,
-    name varchar(25) not null,
-    type varchar(10) not null
-);
+
 
 
 create table if not exists Taco
