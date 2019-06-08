@@ -23,7 +23,7 @@ public class Order implements Serializable {
     private Long id;
     private Date placedAt;
     @NotBlank(message = "Введите имя")
-    private String name;
+    private String deliveryName;
     @NotBlank(message = "Введите улицу")
     private String street;
     @NotBlank(message = "Введите город")
